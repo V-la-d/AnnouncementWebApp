@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create announcement</title>
+</head>
+<body>
+<form action="#" th:action="@{/cereateannouncement}" th:object="${announcement}" method="post">
+    <label for="title">Title</label>
+    <input type="text" th:field="*{title}" id="title">
+    <br/>
+    <label for="description">Description</label>
+    <input type="text" th:field="*{description}" id="description">
+    <br/>
+    <label for="cityofwork">City of work</label>
+    <input type="text" th:field="*{cityofwork}" id="cityofwork">
+    <br/>
+    <label for="date">Current date</label>
+    <input type="date" th:field="*{date}" id="date">
+    <br/>
+    <input type="submit" value="Create Announcement">
+</form>
+</body>
+</html>

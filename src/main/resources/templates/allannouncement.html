@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All announcement</title>
+</head>
+<body>
+<div th:switch="${announcement}">
+    <h2 th:case="null">Announcement didn't find</h2>
+    <div th:case="*">
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>City of work</th>
+                <th>Date added</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="announcement : ${announcement}">
+                <td th:text="${announcement.id}"></td>
+                <td th:text="${announcement.title}"></td>
+                <td th:text="${announcement.description}"></td>
+                <td align="center" th:text="${announcement.cityofwork}"></td>
+                <td th:text="${announcement.date}"></td>
+                <td><a th:href="@{/editannouncement/{id}(id=${announcement.id})}">Edit</a></td>
+                <td><a th:href></a></td>
+                <td><a th:href="@{/deleteannouncement/{id}(id=${announcement.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/createannouncement">Create announcement</a>
+    <p><a href="/mainmenu">Main menu</a></p>
+
+</div>
+</body>
+</html>

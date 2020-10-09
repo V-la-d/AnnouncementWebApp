@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show with details</title>
+</head>
+<body>
+<div th:switch="${announcement}">
+    <h2 th:case="null">Announcement didn't find</h2>
+    <div th:case="*">
+        <table>
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date added</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="announcement : ${announcement}">
+                <td th:text="${announcement.title}"></td>
+                <td th:text="${announcement.description}"></td>
+                <td th:text="${announcement.date}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/mainmenu">Main menu</a></p>
+</div>
+</body>
+</html>
